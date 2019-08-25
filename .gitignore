@@ -1,0 +1,6 @@
+*/_clusters/
+.kube
+*.log
+.vagrant
+tmp/
+

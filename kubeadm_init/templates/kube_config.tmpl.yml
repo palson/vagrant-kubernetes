@@ -1,0 +1,20 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ${CA_DATA_B64}
+    server: https://${MASTER_IP}:6443
+  name: ${CLUSTER_NAME}
+contexts:
+- context:
+    cluster: ${CLUSTER_NAME}
+    user: ${CLUSTER_NAME}-admin
+    namespace: default
+  name: ${CLUSTER_NAME}
+current-context: ${CLUSTER_NAME}
+kind: Config
+preferences: {}
+users:
+- name: ${CLUSTER_NAME}-admin
+  user:
+    client-certificate-data: ${CLIENT_CERT_B64}
+    client-key-data: ${CLIENT_KEY_B64}
