@@ -23,6 +23,9 @@ if [[ ! $(vagrant plugin list | grep vagrant-env) ]]; then
   vagrant plugin install vagrant-env
 fi
 
+cd $SCRIPT_DIR
+vagrant up
+
 echoHeader "Apply prometheus manifests"
 export KUBECONFIG=${KUBEADM_INIT_DIR}/_clusters/${CLUSTER_NAME}/kubeconfig
 echo $KUBECONFIG
